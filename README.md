@@ -23,8 +23,7 @@ Starting from **YouTube v20.47.3**, the built-in software VP9 decoder (`libvpx`)
 - Hooks into YouTube's internal decoder pipeline to intercept VP9 decode requests
 - Routes them to the bundled software decoder, fully restoring 2K/4K VP9 playback
 
-> ⚠️ **This is a standalone tweak.** VP9Tube is **NOT** part of YTLite and has **no dependency** on it. It is designed to work **alongside** [YTUHD by PoomSmart](https://github.com/PoomSmart/YTUHD), which handles the format/ABR side of enabling high-resolution streams. VP9Tube handles the actual decoding.
-
+> ⚠️ **This tweak is made to run alongside [PoomSmart's YTUHD](https://github.com/PoomSmart/YTUHD)**
 ---
 
 ## 🔧 How it works
