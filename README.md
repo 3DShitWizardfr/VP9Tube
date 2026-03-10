@@ -2,7 +2,7 @@
 
 # 🎬 VP9Tube
 
-**Bundled VP9 software decoder for YouTube on iOS — because YouTube took it away.**
+**Bundled VP9 software decoder for YouTube on iOS — because YouTube took it away. :(**
 
 [![iOS 14+](https://img.shields.io/badge/iOS-14%2B-blue?logo=apple&logoColor=white)](https://github.com/3DShitWizardfr/VP9Tube)
 [![ARM64](https://img.shields.io/badge/arch-ARM64-lightgrey)](https://github.com/3DShitWizardfr/VP9Tube)
@@ -15,7 +15,7 @@
 
 ## 📖 What is this?
 
-Starting from **YouTube v20.47.3**, the built-in software VP9 decoder (`libvpx`) was silently removed from the app binary. This broke **2K and 4K VP9 playback** on iOS devices that lack hardware VP9 decoding support (generally anything older than Apple A12 Bionic).
+Starting from **YouTube v20.47.3**, the built-in software VP9 decoder (`libvpx`) was silently removed from the app binary (damn you Google, first you take away my sideloading and now VP9?!). This broke **2K and 4K VP9 playback** on iOS devices that lack hardware VP9 decoding support (generally anything older than Apple A12 Bionic).
 
 **VP9Tube** is a standalone iOS tweak that:
 
@@ -34,6 +34,7 @@ Starting from **YouTube v20.47.3**, the built-in software VP9 decoder (`libvpx`)
 
 3. **Logos hooks on `MLVideoDecoderFactory` and `HAMDefaultVideoDecoderFactory`** intercept VP9 decode requests at YouTube's decoder factory layer. When a VP9-encoded stream is detected, the request is redirected to the bundled `VP9SoftwareDecoder` instead of the (now-missing) system decoder.
 
+Here's a chart that shows the proccess :)
 ```
 YouTube requests VP9 decoder
          │
@@ -55,14 +56,14 @@ CVPixelBuffer (NV12) → YouTube's render pipeline
 |---|---|
 | macOS with Xcode | Required to build libvpx and the tweak |
 | [Theos](https://theos.dev) | iOS tweak build system |
-| Jailbroken device or sideloading method | TrollStore recommended to preserve entitlements |
+| Jailbroken device or sideloading method |
 | [YTUHD](https://github.com/PoomSmart/YTUHD) | For format/ABR hooks that enable high-res VP9 stream selection |
 
 ---
 
 ## 📦 Building
 
-### 1. Clone the repository
+### 1. Clone the repository (as always)
 
 ```bash
 git clone https://github.com/3DShitWizardfr/VP9Tube.git
@@ -102,29 +103,33 @@ The resulting `.deb` package will be in the `packages/` directory.
 3. Open YouTube → Settings → Video quality preferences → Enable VP9 / high-res options via YTUHD
 4. Play a 2K or 4K video — it should now decode correctly via the bundled software decoder
 
-> 💡 **Tip:** You can confirm the software decoder is active by checking the device console logs for `[VP9Tube]` messages.
 
 ---
 
-## ⚡ Compatibility
+##  Compatibility
 
 | Scenario | Status |
 |---|---|
 | Devices **without** hardware VP9 (pre-A12 Bionic) | ✅ Primary target |
 | Devices **with** hardware VP9 (A12+) | ✅ Works (hardware decoder still preferred by system) |
 | YouTube **v20.47.3+** | ✅ Required (older versions have built-in VP9) |
-| YouTube **< v20.47.3** | ⚠️ Not needed (built-in decoder still present) |
+| YouTube **< v20.47.3** | 🙅‍♂️ Not needed (built-in decoder still present) |
 | **iOS 14+** | ✅ Supported |
-| **Sideloaded** installs | ✅ Works (VP9Tube does not rely on AV1 entitlements) |
+| **Sideloaded** installs | ✅ Works (hopefully lol) (VP9Tube does not rely on AV1 entitlements) |
 
 > ⚠️ **Performance note:** 4K VP9 software decoding is CPU-intensive. On older chips (A9/A10), expect higher CPU usage and potential frame drops at 4K. 2K (1440p) is generally smooth on A10 and newer.
 
 ---
+## Contribution
+ If you want to contribute feel free to do so, I genuinely have no idea what I'm doing lol...
+ 
+---
 
 ## 🙏 Credits
 
-- **[PoomSmart](https://github.com/PoomSmart)** — For [YTUHD](https://github.com/PoomSmart/YTUHD), years of reverse engineering YouTube's iOS internals, and laying the groundwork that makes projects like this possible
-- **[WebM Project / Google](https://chromium.googlesource.com/webm/libvpx)** — For [libvpx](https://chromium.googlesource.com/webm/libvpx), the open-source VP8/VP9 codec library
+- **[PoomSmart](https://github.com/PoomSmart)** — For [YTUHD](https://github.com/PoomSmart/YTUHD), years of reverse engineering YouTube's iOS internals, and laying the groundwork that makes projects like this possible (thank you so much, you're a GOAT)
+- **[WebM Project / Google](https://chromium.googlesource.com/webm/libvpx)** — For [libvpx](https://chromium.googlesource.com/webm/libvpx), the open-source VP8/VP9 codec library (the missing component since 20.47.3
+🖕(°-°)🖕)
 
 ---
 
