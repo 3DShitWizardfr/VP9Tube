@@ -1,0 +1,17 @@
+# Theos build artifacts
+.theos/
+packages/
+obj/
+*.deb
+*.ipa
+
+# libvpx source and built output
+libvpx/
+libvpx-ios/
+
+# macOS
+.DS_Store
+
+# Compiled objects and static libraries
+*.o
+*.a
