@@ -1,0 +1,9 @@
+Package: com.3dshitwizardfr.vp9tube
+Name: VP9Tube
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: Bundled VP9 software decoder for YouTube on iOS. Restores 2K/4K VP9 playback on YouTube v20.47.3+ where the built-in decoder was removed.
+Maintainer: 3DShitWizardfr
+Author: 3DShitWizardfr
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
