@@ -121,7 +121,7 @@ The resulting `.deb` package will be in the `packages/` directory.
 
 ---
 ## Contribution
- If you want to contribute feel free to do so, I genuinely have no idea what I'm doing lol...
+ If you want to contribute feel free to do so and take a look at **[CONTIBUTING.md](https://github.com/3DShitWizardfr/VP9Tube/blob/main/CONTRIBUTING.md)**, I genuinely have no idea what I'm doing lol...
  
 ---
 
